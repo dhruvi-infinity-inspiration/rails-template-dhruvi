@@ -1,0 +1,19 @@
+{
+  "name": "Dhruvi Rails Template",
+  "description": "A modern Rails 7.1 template with Tailwind, Reflex, Redis, UUIDs, and mrujs – by Dhruvi Infinity Inspiration Ltd.",
+  "image": "heroku/ruby",
+  "addons": ["heroku-postgresql", "heroku-redis"],
+  "env": {
+    "RAILS_ENV": "production",
+    "RAILS_LOG_TO_STDOUT": "enabled",
+    "RAILS_SERVE_STATIC_FILES": "enabled"
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
