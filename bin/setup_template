@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+require "fileutils"
+
+puts "\n🛠️  Dhruvi Template Initializer"
+print "💬 New app name (snake_case): "
+new_app_name = STDIN.gets.chomp.strip
+
+print "💬 New database name (e.g., #{new_app_name}_development): "
+db_name = STDIN.gets.chomp.strip
+
+puts "🔧 Renaming app internals..."
+
+# Replace app name in files
+files = Dir["config/application.rb", "config/database.yml", "README.md", "bin/*", "Procfile.dev"]
+files.each do |file|
+  text = File.read(file)
+  new_text = text.gsub("RotaFriend", new_app_name.camelize)
+                 .gsub("rotafriend", new_app_name)
+  File.write(file, new_text)
+end
+
+# Create new database config
+puts "💾 Updating database.yml..."
+db_config = <<~YAML
+  default: &default
+    adapter: postgresql
+    encoding: unicode
+    username: postgres
+    password:
+    host: localhost
+
+  development:
+    <<: *default
+    database: #{db_name}
+
+  test:
+    <<: *default
+    database: #{db_name.gsub('development', 'test')}
+YAML
+
+File.write("config/database.yml", db_config)
+
+puts "\n✅ Template ready! Now run:"
+puts "  bin/setup"
+puts "  bin/dev"
