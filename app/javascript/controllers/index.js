@@ -2,7 +2,22 @@
 // // Run that command whenever you add a new controller or create them with
 // // ./bin/rails generate stimulus controllerName
 
-// import { application } from "./application"
+import { application } from "./application"
 
-// import HelloController from "./hello_controller"
-// application.register("hello", HelloController)
+import AlertController from "./alert_controller"
+application.register("alert", AlertController)
+
+import ApplicationController from "./application_controller"
+application.register("application", ApplicationController)
+
+import CounterController from "./counter_controller"
+application.register("counter", CounterController)
+
+import HelloController from "./hello_controller"
+application.register("hello", HelloController)
+
+import QuillController from "./quill_controller"
+application.register("quill", QuillController)
+
+import SlideoverController from "./slideover_controller"
+application.register("slideover", SlideoverController)
