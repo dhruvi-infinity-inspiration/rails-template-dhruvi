@@ -1,0 +1,45 @@
+# Ignore bundler config and installed gems
+/.bundle/
+/vendor/bundle/
+/vendor/cache/
+
+# Ignore Rails logs and temp files
+/log/*
+!/log/.keep
+/tmp/*
+!/tmp/.keep
+
+# Ignore storage artifacts (e.g., Active Storage)
+/storage/*
+!/storage/.keep
+
+# Ignore credentials and keys
+/config/master.key
+/config/credentials.yml.enc
+
+# Ignore precompiled assets
+/public/assets
+/public/packs
+/public/packs-test
+/node_modules/
+/bun.lockb
+
+# Ignore dotenv environment files
+.env
+.env.*
+
+# Ignore OS-specific junk
+.DS_Store
+Thumbs.db
+
+# Ignore editor swap files
+*.swp
+*~
+
+# Ignore test coverage
+/coverage/
+
+# Ignore Yarn, npm and Bun lock files
+yarn.lock
+package-lock.json
+bun.lockb
